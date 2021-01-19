@@ -48,6 +48,11 @@ public class FileTask {
 
                     System.out.println("wocaole");
                     System.out.println("我删除了一些东西");
+
+
+                    System.out.println("我删除了一些东西");
+                    System.out.println(tt.getId());
+
                     System.out.println(tt.getNo());
 
                     System.out.println(tt);
