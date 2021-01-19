@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shanxijuzhi.juzhi.mapper.LogMapper">
+  <resultMap id="BaseResultMap" type="com.shanxijuzhi.juzhi.model.Log">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="logTime" jdbcType="TIMESTAMP" property="logtime" />
+    <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="loginAct" jdbcType="VARCHAR" property="loginact" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, logTime, userID, loginAct, describe
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.shanxijuzhi.juzhi.model.Log">
+    insert into log (id, logTime, userID, 
+      loginAct, describe)
+    values (#{id,jdbcType=INTEGER}, #{logtime,jdbcType=TIMESTAMP}, #{userid,jdbcType=INTEGER}, 
+      #{loginact,jdbcType=VARCHAR}, #{describe,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.shanxijuzhi.juzhi.model.Log">
+    insert into log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="logtime != null">
+        logTime,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="loginact != null">
+        loginAct,
+      </if>
+      <if test="describe != null">
+        describe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="loginact != null">
+        #{loginact,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null">
+        #{describe,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.shanxijuzhi.juzhi.model.Log">
+    update log
+    <set>
+      <if test="logtime != null">
+        logTime = #{logtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        userID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="loginact != null">
+        loginAct = #{loginact,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null">
+        describe = #{describe,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <update id="updateByPrimaryKey" parameterType="com.shanxijuzhi.juzhi.model.Log">
+    update log
+    set logTime = #{logtime,jdbcType=TIMESTAMP},
+      userID = #{userid,jdbcType=INTEGER},
+      loginAct = #{loginact,jdbcType=VARCHAR},
+      describe = #{describe,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>
