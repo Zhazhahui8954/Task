@@ -47,6 +47,7 @@ public class FileTask {
                // List<TestDataInfo> testDataInfos = ExcelManage.ExcelManage(path,TestDataInfo.class);
                 for (TestDataInfo tt:testDataInfos){
 
+                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaa");
                     System.out.println(tt.getId());
                     System.out.println(tt.getNo());
 
