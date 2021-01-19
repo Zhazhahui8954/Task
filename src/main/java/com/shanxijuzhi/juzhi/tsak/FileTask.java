@@ -44,13 +44,10 @@ public class FileTask {
                 ImportExcel<TestDataInfo> importExcel = new ImportExcel<TestDataInfo>();
                 List<TestDataInfo> testDataInfos = importExcel.readxls(path,TestDataInfo.class);
 
-               // List<TestDataInfo> testDataInfos = ExcelManage.ExcelManage(path,TestDataInfo.class);
                 for (TestDataInfo tt:testDataInfos){
 
-                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaa");
-                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaa");
-
-                    System.out.println(tt.getId());
+                    System.out.println("wocaole");
+                    System.out.println("我删除了一些东西");
                     System.out.println(tt.getNo());
 
                     System.out.println(tt);
